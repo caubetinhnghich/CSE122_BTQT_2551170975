@@ -1,26 +1,47 @@
 body {
+  background-color: white;
+  color: black;
   margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  padding: 30px;
+}
+
+.content {
+  margin: 0;
+  max-width: 700px;
+}
+
+.intro {
+  color: #1565c0;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 0.5;
+  margin-bottom: 20px;
+}
+
+img {
+  border-radius: 10px;
+  width: 100%;
+  display: block;
+  height: 300px;
+}
+
+p {
   text-align: justify;
+  margin-bottom: 20px;
 }
 
-h1 {
-  text-align: center;
-  color: #1565c0;
+.subtitle {
+  background-color: #1565c0;
+  color: #ffffff;
+  text-align: right;
+  padding: 10px 15px;
 }
 
-h2 {
-  text-align: center;
-  color: #1565c0;
-}
-
-.all {
-}
-
-.all content {
-}
-
-.all cth {
-}
-
-.all p {
+p::first-letter {
+  font-size: 250%;
+  color: red;
+  font-weight: bold;
+  padding-right: 8px;
+  padding-bottom: 6px;
 }
