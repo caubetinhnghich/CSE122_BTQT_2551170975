@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPulse — Hồ sơ Diễn giả</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/shared.css">
+  <link rel="stylesheet" href="../../css/profile.css">
+</head>
+<body>
+  <header class="ep-nav">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">EP</span>
+      <span>EventPulse</span>
+    </a>
+    <nav class="ep-nav-groups" aria-label="Điều hướng chính">
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Attendee</span>
+        <a href="../attendee/recommendations.html">Gợi ý</a>
+        <a href="../attendee/my-agenda.html">My Agenda</a>
+        <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Speaker</span>
+        <a href="../speaker/profile.html">Hồ sơ</a>
+        <a href="../speaker/my-sessions.html">Session của tôi</a>
+        <a href="../speaker/speaker-session-detail.html">Sửa session</a>
+        <a href="../speaker/materials.html">Tài liệu</a>
+        <a href="../speaker/interest-forecast.html">Dự báo</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Chung</span>
+        <a href="../common/settings.html">Cài đặt</a>
+      </div>
+    </nav>
+    <div class="ep-nav-actions">
+      <span class="avatar">EP</span>
+      <button class="ep-nav-toggle" id="epNavToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="ep-nav-drawer" id="epNavDrawer">
+    <span class="ep-nav-label">Attendee</span>
+    <a href="../attendee/recommendations.html">Gợi ý Session</a>
+    <a href="../attendee/my-agenda.html">My Agenda</a>
+    <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+    <span class="ep-nav-label">Speaker</span>
+    <a href="../speaker/profile.html">Hồ sơ diễn giả</a>
+    <a href="../speaker/my-sessions.html">Session của tôi</a>
+    <a href="../speaker/speaker-session-detail.html">Chỉnh sửa Session</a>
+    <a href="../speaker/materials.html">Tài liệu Session</a>
+    <a href="../speaker/interest-forecast.html">Dự báo quan tâm</a>
+    <span class="ep-nav-label">Chung</span>
+    <a href="../common/settings.html">Cài đặt</a>
+  </div>
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+<main class="page">
+  <div class="breadcrumb">Speaker / <strong>Hồ sơ diễn giả</strong></div>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">SP1 · SPEAKER PROFILE</p>
+      <h1 data-i18n="profile.title">Hồ sơ Diễn giả</h1>
+      <p class="sub" data-i18n="profile.sub">Quản lý thông tin công khai để người tham dự và ban tổ chức nhận diện đúng diễn giả.</p>
+    </div>
+    <button class="button secondary" id="previewBtn" data-i18n="profile.preview">Xem preview</button>
+  </section>
+
+  <div id="message" class="message" hidden></div>
+
+  <section class="layout">
+    <div class="main-col">
+      <form id="speakerForm" novalidate>
+        <section class="card">
+          <div class="section-head"><div><h2>Thông tin cơ bản</h2><p>Thông tin hiển thị trên trang diễn giả.</p></div></div>
+
+          <div class="avatar-row">
+            <div class="avatar-large" id="avatarPreview">PV</div>
+            <div>
+              <h3>Ảnh đại diện</h3>
+              <p class="muted">PNG, JPG hoặc WEBP · tối đa 5MB</p>
+              <input id="avatarInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+              <button type="button" class="button secondary" id="uploadBtn" data-i18n="profile.changePhoto">Đổi ảnh</button>
+              <button type="button" class="text-btn" id="removeAvatar">Xoá ảnh</button>
+              <div id="avatarError" class="field-error"></div>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label class="field">
+              <span>Họ và tên <b>*</b></span>
+              <input id="name" maxlength="100" placeholder="Nguyễn Văn A">
+              <small class="hint">Tên hiển thị công khai</small>
+              <small class="field-error" id="nameError"></small>
+            </label>
+            <label class="field">
+              <span>Chức danh</span>
+              <input id="jobTitle" maxlength="120" placeholder="Senior Product Designer">
+              <small class="hint">Ví dụ: Product Manager, CTO...</small>
+            </label>
+            <label class="field full">
+              <span>Đơn vị / Công ty</span>
+              <input id="company" maxlength="150" placeholder="Tên công ty hoặc tổ chức">
+            </label>
+            <label class="field full">
+              <span>Lĩnh vực chuyên môn</span>
+              <input id="expertise" maxlength="200" placeholder="AI, Product Design, Web Development">
+              <small class="hint">Phân tách nhiều lĩnh vực bằng dấu phẩy</small>
+            </label>
+            <label class="field full">
+              <span>Tiểu sử <b>*</b></span>
+              <textarea id="bio" maxlength="500" rows="7" placeholder="Giới thiệu ngắn gọn về kinh nghiệm và chuyên môn..."></textarea>
+              <div class="counter"><small id="bioCount">0/500</small></div>
+              <small class="field-error" id="bioError"></small>
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head"><div><h2>Mạng xã hội</h2><p>Các liên kết để người tham dự tìm hiểu thêm về diễn giả.</p></div></div>
+          <div class="form-grid">
+            <label class="field full"><span>LinkedIn</span><input id="linkedin" type="url" placeholder="https://linkedin.com/in/ten-cua-ban"><small class="field-error" id="linkedinError"></small></label>
+            <label class="field full"><span>Website</span><input id="website" type="url" placeholder="https://example.com"><small class="field-error" id="websiteError"></small></label>
+            <label class="field"><span>Facebook</span><input id="facebook" type="url" placeholder="https://facebook.com/..."><small class="field-error" id="facebookError"></small></label>
+            <label class="field"><span>X / Twitter</span><input id="twitter" type="url" placeholder="https://x.com/..."><small class="field-error" id="twitterError"></small></label>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="button" class="button secondary" id="cancelBtn">Huỷ</button>
+          <button type="submit" class="button primary" id="saveBtn">Lưu hồ sơ</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="side-col">
+      <section class="card sticky">
+        <div class="section-head"><div><h2>Preview</h2><p>Hiển thị gần giống hồ sơ công khai.</p></div></div>
+        <article class="profile-preview">
+          <div class="preview-avatar" id="previewAvatar">PV</div>
+          <h2 id="previewName">Phan Anh Vũ</h2>
+          <p id="previewRole" class="preview-role">Speaker</p>
+          <p id="previewCompany" class="muted">EventPulse</p>
+          <div id="previewTags" class="tags"></div>
+          <p id="previewBio" class="preview-bio">Chưa có tiểu sử.</p>
+          <div class="socials" id="previewSocials"></div>
+        </article>
+      </section>
+      <section class="card checklist">
+        <h3>Kiểm tra hồ sơ</h3>
+        <p id="checkName">○ Họ tên</p>
+        <p id="checkBio">○ Tiểu sử</p>
+        <p id="checkAvatar">○ Ảnh đại diện</p>
+        <p id="checkLinks">○ Liên kết hợp lệ</p>
+      </section>
+    </aside>
+  </section>
+</main>
+
+<div class="modal-backdrop" id="previewModal" hidden>
+  <div class="modal">
+    <button class="close" id="closePreview">×</button>
+    <p class="eyebrow">PUBLIC PREVIEW</p>
+    <div id="modalPreview"></div>
+  </div>
+</div>
+
+
+<script src="../../js/shared.js"></script>
+<script src="../../js/speaker-profile.js"></script>
+</body></html>

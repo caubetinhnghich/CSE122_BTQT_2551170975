@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPulse — Session của tôi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/shared.css">
+  <link rel="stylesheet" href="../../css/my-sessions.css">
+</head>
+<body>
+  <header class="ep-nav">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">EP</span>
+      <span>EventPulse</span>
+    </a>
+    <nav class="ep-nav-groups" aria-label="Điều hướng chính">
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Attendee</span>
+        <a href="../attendee/recommendations.html">Gợi ý</a>
+        <a href="../attendee/my-agenda.html">My Agenda</a>
+        <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Speaker</span>
+        <a href="../speaker/profile.html">Hồ sơ</a>
+        <a href="../speaker/my-sessions.html">Session của tôi</a>
+        <a href="../speaker/speaker-session-detail.html">Sửa session</a>
+        <a href="../speaker/materials.html">Tài liệu</a>
+        <a href="../speaker/interest-forecast.html">Dự báo</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Chung</span>
+        <a href="../common/settings.html">Cài đặt</a>
+      </div>
+    </nav>
+    <div class="ep-nav-actions">
+      <span class="avatar">EP</span>
+      <button class="ep-nav-toggle" id="epNavToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="ep-nav-drawer" id="epNavDrawer">
+    <span class="ep-nav-label">Attendee</span>
+    <a href="../attendee/recommendations.html">Gợi ý Session</a>
+    <a href="../attendee/my-agenda.html">My Agenda</a>
+    <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+    <span class="ep-nav-label">Speaker</span>
+    <a href="../speaker/profile.html">Hồ sơ diễn giả</a>
+    <a href="../speaker/my-sessions.html">Session của tôi</a>
+    <a href="../speaker/speaker-session-detail.html">Chỉnh sửa Session</a>
+    <a href="../speaker/materials.html">Tài liệu Session</a>
+    <a href="../speaker/interest-forecast.html">Dự báo quan tâm</a>
+    <span class="ep-nav-label">Chung</span>
+    <a href="../common/settings.html">Cài đặt</a>
+  </div>
+
+
+  
+  
+  
+  
+
+
+
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">SPEAKER</div>
+      <h1 data-i18n="sessions.title">Session của tôi</h1>
+      <p data-i18n="sessions.sub">Theo dõi các session đã đăng ký, đề xuất và trạng thái duyệt của bạn.</p>
+    </div>
+    <button class="btn primary" id="btnCreate" data-i18n="sessions.create">＋ Đề xuất session mới</button>
+  </section>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <section class="stats">
+    <div><span>Tất cả</span><strong id="countAll">0</strong></div>
+    <div><span>Chờ duyệt</span><strong id="countPending">0</strong></div>
+    <div><span>Đã duyệt</span><strong id="countApproved">0</strong></div>
+    <div><span>Từ chối</span><strong id="countRejected">0</strong></div>
+  </section>
+
+  <section class="card" id="feedbackPanel" style="background:#fff;border:1px solid var(--border,#e5e5ec);border-radius:12px;padding:18px 20px;margin-bottom:15px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+      <div>
+        <div class="eyebrow" style="margin:0;">SP6 · FEEDBACK OVERVIEW</div>
+        <h2 style="margin:4px 0 0;font-size:17px;">Phản hồi session (mock)</h2>
+      </div>
+      <select id="feedbackFilter" style="border:1px solid #e5e5ec;border-radius:8px;padding:8px 12px;background:#fff;">
+        <option value="all">Tất cả session</option>
+      </select>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;">
+      <div style="border:1px solid #e5e5ec;border-radius:10px;padding:12px 14px;">
+        <span style="font-size:12px;color:#737580;">Điểm trung bình</span>
+        <strong id="fbAvg" style="display:block;font-size:22px;margin-top:4px;">—</strong>
+      </div>
+      <div style="border:1px solid #e5e5ec;border-radius:10px;padding:12px 14px;">
+        <span style="font-size:12px;color:#737580;">Số nhận xét</span>
+        <strong id="fbCount" style="display:block;font-size:22px;margin-top:4px;">0</strong>
+      </div>
+      <div style="border:1px solid #e5e5ec;border-radius:10px;padding:12px 14px;">
+        <span style="font-size:12px;color:#737580;">Phân bố sao</span>
+        <strong id="fbStars" style="display:block;font-size:14px;margin-top:6px;letter-spacing:.04em;">★★★★★</strong>
+      </div>
+    </div>
+    <div id="fbList" style="display:grid;gap:10px;font-size:13px;"></div>
+  </section>
+
+  <section class="toolbar">
+    <div class="search">
+      <span>⌕</span><input id="searchInput" placeholder="Tìm session...">
+    </div>
+    <select id="statusFilter">
+      <option value="all">Tất cả trạng thái</option>
+      <option value="pending">Chờ duyệt</option>
+      <option value="approved">Đã duyệt</option>
+      <option value="rejected">Từ chối</option>
+    </select>
+    <button class="btn ghost" id="btnReload">↻ Làm mới</button>
+  </section>
+
+  <section id="loading" class="state" hidden>
+    <div class="spinner"></div>
+    <h3>Đang tải session...</h3>
+  </section>
+
+  <section id="error" class="state error" hidden>
+    <div class="state-icon">!</div>
+    <h3>Không thể tải dữ liệu</h3>
+    <p id="errorText"></p>
+    <button class="btn primary" id="btnRetry">Thử lại</button>
+  </section>
+
+  <section id="empty" class="state" hidden>
+    <div class="state-icon">○</div>
+    <h3>Không có session phù hợp</h3>
+    <p>Thử đổi bộ lọc hoặc tạo một session mới.</p>
+    <button class="btn primary" id="btnEmptyCreate">Đề xuất session</button>
+  </section>
+
+  <section id="sessionList" class="session-list"></section>
+</main>
+
+<div id="modal" class="modal-layer" hidden>
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div id="formModal" class="modal-layer" hidden>
+  <div class="modal form-modal">
+    <button class="modal-close" data-form-close>×</button>
+    <div class="eyebrow">CREATE / UPDATE</div>
+    <h2 id="formHeading">Đề xuất session mới</h2>
+    <form id="sessionForm" novalidate>
+      <label>Tên session *<input id="title" maxlength="120"></label>
+      <small id="titleError" class="field-error"></small>
+
+      <label>Chủ đề *<input id="category" maxlength="80"></label>
+      <small id="categoryError" class="field-error"></small>
+
+      <div class="two">
+        <div><label>Bắt đầu *<input id="startTime" type="datetime-local"></label><small id="startError" class="field-error"></small></div>
+        <div><label>Kết thúc *<input id="endTime" type="datetime-local"></label><small id="endError" class="field-error"></small></div>
+      </div>
+
+      <label>Phòng<input id="room" maxlength="60" placeholder="Ví dụ: Room A"></label>
+
+      <label>Mô tả *<textarea id="description" rows="5" maxlength="600"></textarea></label>
+      <div class="counter"><span id="descriptionCount">0</span>/600</div>
+      <small id="descriptionError" class="field-error"></small>
+
+      <div class="form-actions">
+        <button type="button" class="btn ghost" data-form-close>Huỷ</button>
+        <button type="submit" class="btn primary">Gửi đề xuất</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<script src="../../js/shared.js"></script>
+<script src="../../js/speaker-my-sessions.js"></script>
+</body></html>

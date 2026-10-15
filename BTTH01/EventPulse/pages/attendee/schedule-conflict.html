@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPulse — Xử lý xung đột lịch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/shared.css">
+  <link rel="stylesheet" href="../../css/conflict.css">
+</head>
+<body>
+  <header class="ep-nav">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">EP</span>
+      <span>EventPulse</span>
+    </a>
+    <nav class="ep-nav-groups" aria-label="Điều hướng chính">
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Attendee</span>
+        <a href="../attendee/recommendations.html">Gợi ý</a>
+        <a href="../attendee/my-agenda.html">My Agenda</a>
+        <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Speaker</span>
+        <a href="../speaker/profile.html">Hồ sơ</a>
+        <a href="../speaker/my-sessions.html">Session của tôi</a>
+        <a href="../speaker/speaker-session-detail.html">Sửa session</a>
+        <a href="../speaker/materials.html">Tài liệu</a>
+        <a href="../speaker/interest-forecast.html">Dự báo</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Chung</span>
+        <a href="../common/settings.html">Cài đặt</a>
+      </div>
+    </nav>
+    <div class="ep-nav-actions">
+      <span class="avatar">EP</span>
+      <button class="ep-nav-toggle" id="epNavToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="ep-nav-drawer" id="epNavDrawer">
+    <span class="ep-nav-label">Attendee</span>
+    <a href="../attendee/recommendations.html">Gợi ý Session</a>
+    <a href="../attendee/my-agenda.html">My Agenda</a>
+    <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+    <span class="ep-nav-label">Speaker</span>
+    <a href="../speaker/profile.html">Hồ sơ diễn giả</a>
+    <a href="../speaker/my-sessions.html">Session của tôi</a>
+    <a href="../speaker/speaker-session-detail.html">Chỉnh sửa Session</a>
+    <a href="../speaker/materials.html">Tài liệu Session</a>
+    <a href="../speaker/interest-forecast.html">Dự báo quan tâm</a>
+    <span class="ep-nav-label">Chung</span>
+    <a href="../common/settings.html">Cài đặt</a>
+  </div>
+  <div class="app-shell">
+<main class="page">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">MY AGENDA</p>
+          <h1 data-i18n="conflict.title">Xử lý xung đột lịch</h1>
+          <p class="page-subtitle">
+            Hai phiên đang trùng thời gian. Xem đề xuất từ AI và chọn phương án phù hợp với lịch của bạn.
+          </p>
+        </div>
+        <button class="button button-secondary" type="button" id="backButton">
+          ← Quay lại lịch
+        </button>
+      </section>
+
+      <div id="globalMessage" class="toast" role="status" aria-live="polite" hidden></div>
+
+      <section class="conflict-layout" aria-label="Xử lý xung đột lịch">
+        <div class="main-column">
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <span class="status-badge status-error">XUNG ĐỘT</span>
+                <h2>Hai phiên trùng giờ</h2>
+              </div>
+              <span class="muted" id="conflictTime"></span>
+            </div>
+
+            <div class="session-comparison" id="conflictSessions"></div>
+          </section>
+
+          <section class="card ai-card" id="aiCard">
+            <div class="ai-card-header">
+              <div class="ai-title-wrap">
+                <div class="ai-icon" aria-hidden="true">✨</div>
+                <div>
+                  <span class="ai-label">AI-2 CONFLICT RESOLVER</span>
+                  <h2>Đề xuất phiên thay thế</h2>
+                </div>
+              </div>
+              <span class="confidence-badge" id="confidenceBadge" hidden></span>
+            </div>
+
+            <div id="aiContent" class="ai-content" aria-live="polite"></div>
+
+            <div id="aiActions" class="ai-actions" hidden>
+              <button class="button button-primary" type="button" id="acceptButton">
+                ✓ Chấp nhận đề xuất
+              </button>
+              <button class="button button-secondary" type="button" id="alternativesButton">
+                Xem lựa chọn khác
+              </button>
+              <button class="button button-ghost" type="button" id="skipButton">
+                Bỏ qua
+              </button>
+              <button class="button button-ghost" type="button" id="retryButton">
+                ↻ Tạo lại
+              </button>
+            </div>
+          </section>
+
+          <section class="card alternatives-card" id="alternativesCard" hidden>
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">THỦ CÔNG</span>
+                <h2>Chọn một phiên khác</h2>
+              </div>
+              <button class="icon-button" type="button" id="closeAlternatives" aria-label="Đóng">×</button>
+            </div>
+            <p class="muted">Các phiên dưới đây không trùng với agenda hiện tại.</p>
+            <div id="alternativesList" class="alternatives-list"></div>
+          </section>
+
+          <section class="card failure-card" id="failureCard" hidden>
+            <div class="failure-icon" aria-hidden="true">!</div>
+            <div>
+              <h2>AI chưa thể đưa ra đề xuất</h2>
+              <p id="failureText">Không đủ dữ liệu để tìm phiên thay thế phù hợp.</p>
+              <div class="inline-actions">
+                <button class="button button-primary" type="button" id="failureRetryButton">Thử lại</button>
+                <button class="button button-secondary" type="button" id="manualButton">Chọn thủ công</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="card summary-card">
+            <div class="section-heading compact">
+              <div>
+                <span class="eyebrow">TỔNG QUAN</span>
+                <h2>Lịch trình của tôi</h2>
+              </div>
+            </div>
+            <div class="summary-grid">
+              <div>
+                <strong id="agendaCount">0</strong>
+                <span>phiên đã lưu</span>
+              </div>
+              <div>
+                <strong id="eventCount">0</strong>
+                <span>giờ sự kiện</span>
+              </div>
+              <div>
+                <strong id="topicCount">0</strong>
+                <span>chủ đề</span>
+              </div>
+              <div class="danger-stat">
+                <strong id="conflictCount">1</strong>
+                <span>xung đột cần xử lý</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="card explanation-card">
+            <div class="section-heading compact">
+              <div>
+                <span class="eyebrow">AI EXPLANATION</span>
+                <h2>AI sẽ không tự đổi lịch</h2>
+              </div>
+            </div>
+            <p>
+              Đề xuất chỉ được áp dụng sau khi bạn xác nhận. Bạn có thể chọn phương án khác hoặc bỏ qua.
+            </p>
+            <ul class="check-list">
+              <li>Không trùng giờ</li>
+              <li>Ưu tiên chủ đề phù hợp</li>
+              <li>Giữ nguyên dữ liệu cho tới khi xác nhận</li>
+            </ul>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+<script src="../../js/shared.js"></script>
+<script src="../../js/conflict-resolver.js"></script>
+</body></html>

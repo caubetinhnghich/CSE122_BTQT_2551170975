@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url=./speaker-session-detail.html">
+  <script>
+    (function () {
+      var q = location.search || "";
+      location.replace("./speaker-session-detail.html" + q);
+    })();
+  </script>
+  <title>Redirect…</title>
+</head>
+<body>
+  <p>Đang chuyển tới <a id="go" href="./speaker-session-detail.html">speaker-session-detail.html</a>…</p>
+  <script>
+    document.getElementById("go").href = "./speaker-session-detail.html" + (location.search || "");
+  </script>
+</body>
+</html>

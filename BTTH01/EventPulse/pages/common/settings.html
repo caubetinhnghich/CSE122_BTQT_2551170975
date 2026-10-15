@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPulse — Cài đặt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/shared.css">
+  <link rel="stylesheet" href="../../css/settings.css">
+</head>
+<body>
+  <header class="ep-nav">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">EP</span>
+      <span>EventPulse</span>
+    </a>
+    <nav class="ep-nav-groups" aria-label="Điều hướng chính">
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Attendee</span>
+        <a href="../attendee/recommendations.html">Gợi ý</a>
+        <a href="../attendee/my-agenda.html">My Agenda</a>
+        <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Speaker</span>
+        <a href="../speaker/profile.html">Hồ sơ</a>
+        <a href="../speaker/my-sessions.html">Session của tôi</a>
+        <a href="../speaker/speaker-session-detail.html">Sửa session</a>
+        <a href="../speaker/materials.html">Tài liệu</a>
+        <a href="../speaker/interest-forecast.html">Dự báo</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Chung</span>
+        <a href="../common/settings.html">Cài đặt</a>
+      </div>
+    </nav>
+    <div class="ep-nav-actions">
+      <span class="avatar">EP</span>
+      <button class="ep-nav-toggle" id="epNavToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="ep-nav-drawer" id="epNavDrawer">
+    <span class="ep-nav-label">Attendee</span>
+    <a href="../attendee/recommendations.html">Gợi ý Session</a>
+    <a href="../attendee/my-agenda.html">My Agenda</a>
+    <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+    <span class="ep-nav-label">Speaker</span>
+    <a href="../speaker/profile.html">Hồ sơ diễn giả</a>
+    <a href="../speaker/my-sessions.html">Session của tôi</a>
+    <a href="../speaker/speaker-session-detail.html">Chỉnh sửa Session</a>
+    <a href="../speaker/materials.html">Tài liệu Session</a>
+    <a href="../speaker/interest-forecast.html">Dự báo quan tâm</a>
+    <span class="ep-nav-label">Chung</span>
+    <a href="../common/settings.html">Cài đặt</a>
+  </div>
+
+
+  
+  
+  
+  
+
+
+
+
+<main class="page">
+  <div class="breadcrumb">Dùng chung / <b>Cài đặt</b></div>
+
+  <section class="page-title">
+    <div>
+      <div class="eyebrow">ACCOUNT SETTINGS</div>
+      <h1 data-i18n="settings.title">Cài đặt</h1>
+      <p data-i18n="settings.sub">Tùy chỉnh tài khoản và trải nghiệm sử dụng EventPulse.</p>
+    </div>
+    <span class="save-status" id="saveStatus">✓ Đã tự động lưu</span>
+  </section>
+
+  <div class="layout">
+    <aside class="side-nav card">
+      <button class="nav-item active" data-target="account">Tài khoản</button>
+      <button class="nav-item" data-target="appearance">Giao diện</button>
+      <button class="nav-item" data-target="preferences">Tùy chọn</button>
+      <button class="nav-item" data-target="security">Bảo mật</button>
+    </aside>
+
+    <section class="content">
+      <section class="settings-section card" id="account">
+        <div class="section-head">
+          <div>
+            <h2>Tài khoản</h2>
+            <p>Thông tin cơ bản của tài khoản đang đăng nhập.</p>
+          </div>
+        </div>
+        <div class="profile-row">
+          <div class="big-avatar">PV</div>
+          <div>
+            <strong>Phan Anh Vũ</strong>
+            <span>SV2 · Speaker</span>
+          </div>
+        </div>
+        <div class="form-grid">
+          <label>Họ và tên<input id="name" value="Phan Anh Vũ"></label>
+          <label>Email<input value="phananhvu@example.com" disabled></label>
+        </div>
+      </section>
+
+      <section class="settings-section card" id="appearance">
+        <div class="section-head">
+          <div>
+            <h2>Giao diện</h2>
+            <p>Chọn ngôn ngữ và chế độ hiển thị.</p>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div><strong>Ngôn ngữ</strong><span>Ngôn ngữ hiển thị của ứng dụng</span></div>
+          <select id="language"><option value="vi">Tiếng Việt</option><option value="en">English</option></select>
+        </div>
+        <div class="setting-row">
+          <div><strong>Chế độ tối/sáng</strong><span>Thay đổi giao diện theo sở thích</span></div>
+          <div class="segmented"><button class="theme active" data-theme="light">☀ Sáng</button><button class="theme" data-theme="dark">☾ Tối</button></div>
+        </div>
+        <div class="setting-row">
+          <div><strong>Vai trò xem menu</strong><span>Ẩn nhóm Attendee hoặc Speaker trên thanh điều hướng</span></div>
+          <select id="role"><option value="speaker">Speaker</option><option value="attendee">Attendee</option><option value="all">Tất cả</option></select>
+        </div>
+      </section>
+
+      <section class="settings-section card" id="preferences">
+        <div class="section-head">
+          <div>
+            <h2>Tùy chọn</h2>
+            <p>Các hành vi được tự động lưu khi bạn thay đổi.</p>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div><strong>Tự động lưu</strong><span>Lưu thay đổi ngay sau khi bạn bật/tắt tùy chọn.</span></div>
+          <label class="switch"><input id="autosave" type="checkbox" checked><span></span></label>
+        </div>
+        <div class="setting-row">
+          <div><strong>Nhắc lịch session</strong><span>Hiển thị nhắc nhở trước session đã thêm vào agenda.</span></div>
+          <label class="switch"><input id="reminder" type="checkbox" checked><span></span></label>
+        </div>
+      </section>
+
+      <section class="settings-section card" id="security">
+        <div class="section-head">
+          <div>
+            <h2>Bảo mật</h2>
+            <p>Đổi mật khẩu tài khoản.</p>
+          </div>
+        </div>
+        <form id="passwordForm">
+          <div class="form-grid">
+            <label>Mật khẩu hiện tại<input id="currentPassword" type="password" required></label>
+            <div></div>
+            <label>Mật khẩu mới<input id="newPassword" type="password" minlength="6" required></label>
+            <label>Xác nhận mật khẩu<input id="confirmPassword" type="password" minlength="6" required></label>
+          </div>
+          <div class="form-actions"><button class="btn primary" type="submit">Đổi mật khẩu</button></div>
+          <p class="form-message" id="passwordMessage"></p>
+        </form>
+      </section>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="../../js/shared.js"></script>
+<script src="../../js/settings.js"></script>
+</body></html>

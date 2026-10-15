@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPulse — Tài liệu Session</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/shared.css">
+  <link rel="stylesheet" href="../../css/materials.css">
+</head>
+<body>
+  <header class="ep-nav">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">EP</span>
+      <span>EventPulse</span>
+    </a>
+    <nav class="ep-nav-groups" aria-label="Điều hướng chính">
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Attendee</span>
+        <a href="../attendee/recommendations.html">Gợi ý</a>
+        <a href="../attendee/my-agenda.html">My Agenda</a>
+        <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Speaker</span>
+        <a href="../speaker/profile.html">Hồ sơ</a>
+        <a href="../speaker/my-sessions.html">Session của tôi</a>
+        <a href="../speaker/speaker-session-detail.html">Sửa session</a>
+        <a href="../speaker/materials.html">Tài liệu</a>
+        <a href="../speaker/interest-forecast.html">Dự báo</a>
+      </div>
+      <div class="ep-nav-group">
+        <span class="ep-nav-label">Chung</span>
+        <a href="../common/settings.html">Cài đặt</a>
+      </div>
+    </nav>
+    <div class="ep-nav-actions">
+      <span class="avatar">EP</span>
+      <button class="ep-nav-toggle" id="epNavToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="ep-nav-drawer" id="epNavDrawer">
+    <span class="ep-nav-label">Attendee</span>
+    <a href="../attendee/recommendations.html">Gợi ý Session</a>
+    <a href="../attendee/my-agenda.html">My Agenda</a>
+    <a href="../attendee/schedule-conflict.html">Xung đột lịch</a>
+    <span class="ep-nav-label">Speaker</span>
+    <a href="../speaker/profile.html">Hồ sơ diễn giả</a>
+    <a href="../speaker/my-sessions.html">Session của tôi</a>
+    <a href="../speaker/speaker-session-detail.html">Chỉnh sửa Session</a>
+    <a href="../speaker/materials.html">Tài liệu Session</a>
+    <a href="../speaker/interest-forecast.html">Dự báo quan tâm</a>
+    <span class="ep-nav-label">Chung</span>
+    <a href="../common/settings.html">Cài đặt</a>
+  </div>
+
+
+  
+  
+  
+  
+
+
+  
+
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">SPEAKER / SESSION MATERIALS</div>
+        <h1 data-i18n="materials.title">Tài liệu Session</h1>
+        <p id="sessionInfo">Đang tải session...</p>
+      </div>
+      <button id="backBtn" class="btn ghost">← Session của tôi</button>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <!-- Loading -->
+    <section id="loadingState" class="state-card">
+      <div class="spinner"></div>
+      <h2>Đang tải tài liệu...</h2>
+      <p>Vui lòng chờ trong giây lát.</p>
+    </section>
+
+    <!-- Error -->
+    <section id="errorState" class="state-card error-state" hidden>
+      <div class="state-icon">!</div>
+      <h2>Không thể tải tài liệu</h2>
+      <p id="errorMessage">Có lỗi xảy ra khi đọc dữ liệu session.</p>
+      <button id="retryBtn" class="btn primary">Thử lại</button>
+    </section>
+
+    <!-- App -->
+    <section id="app" hidden>
+      <div class="layout">
+        <div class="main-column">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Kho tài liệu</h2>
+                <p>Upload slide hoặc tài liệu tham khảo cho người tham dự.</p>
+              </div>
+              <span id="materialCount" class="count-pill">0 tài liệu</span>
+            </div>
+
+            <div id="dropZone" class="drop-zone">
+              <input id="fileInput" type="file" multiple hidden
+                     accept=".pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip,.txt,.png,.jpg,.jpeg">
+              <div class="upload-icon">↑</div>
+              <h3>Kéo thả file vào đây</h3>
+              <p>hoặc</p>
+              <button id="chooseBtn" type="button" class="btn primary">Chọn file từ máy</button>
+              <small>PDF, PPT/PPTX, DOC/DOCX, XLS/XLSX, ZIP, TXT, PNG, JPG · tối đa 20MB/file</small>
+            </div>
+
+            <div id="uploadProgress" class="upload-progress" hidden>
+              <div class="progress-row">
+                <span id="progressName">Đang upload...</span>
+                <strong id="progressPercent">0%</strong>
+              </div>
+              <div class="progress-track"><div id="progressBar"></div></div>
+            </div>
+
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border,#e4e4ec);">
+              <h3 style="margin:0 0 8px;font-size:14px;">Link tham khảo</h3>
+              <p style="margin:0 0 10px;font-size:12px;color:var(--muted,#747681);">Thêm URL tài liệu / slide online (không upload file).</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <input id="refLinkInput" type="url" placeholder="https://..." style="flex:1;min-width:180px;border:1px solid var(--border,#e4e4ec);border-radius:8px;padding:10px 12px;">
+                <input id="refTitleInput" type="text" placeholder="Tiêu đề (tuỳ chọn)" style="width:160px;border:1px solid var(--border,#e4e4ec);border-radius:8px;padding:10px 12px;">
+                <button type="button" id="addRefBtn" class="btn primary">Thêm link</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Danh sách tài liệu</h2>
+                <p>Người tham dự có thể xem tên và kích thước file.</p>
+              </div>
+            </div>
+
+            <div id="emptyState" class="empty-state" hidden>
+              <div class="empty-icon">□</div>
+              <h3>Chưa có tài liệu</h3>
+              <p>Hãy upload slide hoặc tài liệu tham khảo đầu tiên cho session này.</p>
+              <button id="emptyChooseBtn" class="btn primary">Upload tài liệu</button>
+            </div>
+
+            <div id="materialList" class="material-list"></div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Thông tin session</h2>
+                <p id="sessionTitle">—</p>
+              </div>
+            </div>
+            <dl class="session-meta">
+              <div><dt>Session ID</dt><dd id="sessionId">—</dd></div>
+              <div><dt>Trạng thái</dt><dd><span id="statusBadge" class="status-badge pending">Chờ duyệt</span></dd></div>
+              <div><dt>Số tài liệu</dt><dd id="sideCount">0</dd></div>
+            </dl>
+          </section>
+
+          <section class="card tips">
+            <h2>Lưu ý</h2>
+            <ul>
+              <li>Kiểm tra tên file trước khi upload.</li>
+              <li>Không upload thông tin nhạy cảm.</li>
+              <li>File lớn hơn 20MB sẽ bị từ chối.</li>
+              <li>Demo hiện lưu metadata bằng LocalStorage.</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Success -->
+    <div id="successModal" class="modal-backdrop" hidden>
+      <div class="modal">
+        <div class="state-icon success">✓</div>
+        <h2>Upload thành công</h2>
+        <p id="successText">Tài liệu đã được thêm vào session.</p>
+        <button id="successClose" class="btn primary">Đã hiểu</button>
+      </div>
+    </div>
+
+    <!-- Delete confirm -->
+    <div id="deleteModal" class="modal-backdrop" hidden>
+      <div class="modal">
+        <div class="state-icon danger">!</div>
+        <h2>Xoá tài liệu?</h2>
+        <p>Bạn có chắc muốn xoá <strong id="deleteFileName"></strong>? Hành động này không thể hoàn tác.</p>
+        <div class="modal-actions">
+          <button id="cancelDelete" class="btn ghost">Huỷ</button>
+          <button id="confirmDelete" class="btn danger-btn">Xoá tài liệu</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+<script src="../../js/shared.js"></script>
+<script src="../../js/speaker-materials.js"></script>
+</body></html>
