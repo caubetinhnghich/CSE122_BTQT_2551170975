@@ -1,0 +1,77 @@
+body {
+  font-family:
+    Times New Roman,
+    Times,
+    serif;
+  background: #e9ecef;
+  margin: 0;
+  padding: 30px;
+}
+
+.trang {
+  width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.dai-tieu-de {
+  background: #c8102e;
+  color: #ffffff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 16px 10px;
+}
+
+.dai-phu {
+  background: #fbe3e8;
+  color: #c8102e;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.than-bai {
+  padding: 20px 24px;
+  overflow: hidden;
+  color: #333333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.cot-phai {
+  float: right;
+  width: 50%;
+  box-sizing: border-box;
+  border-left: 1px solid #c8c8c8;
+  padding-left: 16px;
+}
+
+.cot-trai {
+  clear: both;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 16px 16px 0 0;
+}
+
+.tieu-de-muc {
+  color: #c8102e;
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+
+.tieu-de-muc::before {
+  content: "\25A1\00a0";
+}
+
+.than-bai ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.anh-sp {
+  float: right;
+  width: 150px;
+  margin: 0 0 10px 12px;
+}
