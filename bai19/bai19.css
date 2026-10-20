@@ -1,0 +1,39 @@
+body{
+    background: white;
+    margin: 0;
+    padding: 30px
+}
+
+img{
+    float: left;
+    width: 300px;
+    margin:  0 24px 16px 0;
+    border-radius:12px ;
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.4);
+}
+
+h1{
+    color: #C9A227;
+    font-size: 28px;
+    margin:  0 0 16px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.noidung{
+    overflow: hidden;
+    border: 2px dashed #E07B00;
+    border-radius: 12px;
+    padding: 14px 22px;
+}
+
+p{
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0 0 12px;
+}
+
+.nhan{
+    color: #C62828;
+    font-weight: bold;
+}

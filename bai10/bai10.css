@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, Tahoma, Helvetica, sans-serif;
+  background-color: #e2e8f0;
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.khung-form {
+  width: 100%;
+  max-width: 650px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.tieu-de-form {
+  background-color: #0f766e;
+  color: #ffffff;
+  padding: 25px 30px 20px 30px;
+}
+
+.tieu-de-form h1 {
+  margin: 0 0 6px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tieu-de-form p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-lien-he {
+  padding: 25px 30px 30px 30px;
+}
+
+.hang-2-cot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.nhom-truong {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.hang-2-cot .nhom-truong {
+  margin-bottom: 0;
+}
+
+.nhom-truong label {
+  font-size: 12.5px;
+  font-weight: bold;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.nhom-truong input,
+.nhom-truong select,
+.nhom-truong textarea {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #1e293b;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.nhom-truong input:focus,
+.nhom-truong select:focus,
+.nhom-truong textarea:focus {
+  border-color: #0f766e;
+}
+
+.nhom-truong input::placeholder,
+.nhom-truong textarea::placeholder {
+  color: #94a3b8;
+}
+
+.nhom-truong select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.nhom-truong textarea {
+  resize: vertical;
+}
+
+.nhom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.nhom-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0f766e;
+  cursor: pointer;
+}
+
+.nhom-checkbox label {
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.nhom-nut {
+  display: flex;
+  gap: 12px;
+}
+
+.nut-gui {
+  padding: 10px 22px;
+  background-color: #0f766e;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nut-gui:hover {
+  background-color: #0d6b63;
+}
+
+.nut-nhap-lai {
+  padding: 10px 22px;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nut-nhap-lai:hover {
+  background-color: #e2e8f0;
+}

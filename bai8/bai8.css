@@ -1,0 +1,156 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Tahoma, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px 0;
+  color: #333333;
+}
+
+.trang {
+  width: 820px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+}
+
+.tieu-de-trang {
+  padding: 18px 20px 10px 20px;
+  border-bottom: 2px solid #1668C1;
+}
+
+.tieu-de-trang h1 {
+  margin: 0;
+  color: #1668C1;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.than-trang {
+  display: flex;
+}
+
+.cot-trai {
+  width: 180px;
+  flex-shrink: 0;
+  border-right: 1px solid #e0e0e0;
+  padding: 15px 12px 25px 16px;
+  box-sizing: border-box;
+}
+
+.tieu-de-menu {
+  font-size: 11px;
+  font-weight: bold;
+  color: #7b8089;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.danh-sach-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.danh-sach-menu li {
+  margin-bottom: 10px;
+}
+
+.danh-sach-menu a {
+  color: #1668C1;
+  font-size: 13.5px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
+
+.danh-sach-menu a:hover {
+  text-decoration: underline;
+}
+
+.cot-phai {
+  flex: 1;
+  padding: 15px 20px 30px 20px;
+  box-sizing: border-box;
+}
+
+.chuyen-muc {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.chuyen-muc:last-of-type {
+  border-bottom: none;
+}
+
+.thanh-chuyen-muc {
+  background-color: #1668C1;
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 3px;
+  margin: 0 0 10px 0;
+}
+
+.bai-viet {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px dotted #bcd6f6;
+}
+
+.bai-viet:last-of-type {
+  border-bottom: none;
+}
+
+.bai-viet-noidung {
+  flex: 1;
+}
+
+.tieu-de-bai {
+  color: #1668C1;
+  font-size: 13.5px;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+}
+
+.mo-ta {
+  font-size: 12.5px;
+  color: #333333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.anh-minh-hoa {
+  width: 110px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.ve-dau-trang {
+  text-align: right;
+  margin-top: 6px;
+}
+
+.ve-dau-trang a {
+  color: #1668C1;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.ve-dau-trang a:hover {
+  text-decoration: underline;
+}
+

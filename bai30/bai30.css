@@ -1,0 +1,45 @@
+.sidebar {
+    width: 230px;
+    min-height: 100vh;
+    background-color: #212529;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.sidebar .nav-link {
+    color: #adb5bd;
+    border-radius: 6px;
+}
+
+.sidebar .nav-link.active {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+.noidung {
+    background-color: #e9ecef;
+    min-height: 100vh;
+}
+
+.progress {
+    height: 6px;
+}
+
+.tl-sv {
+    width: 100%;
+    background-color: #0d6efd !important;
+}
+
+.tl-nop {
+    width: 75%;
+}
+
+.tl-chua {
+    width: 25%;
+    background-color: #dc3545 !important;
+}
+
+.tl-diem {
+    width: 78%;
+    background-color: #ffc107 !important;
+}

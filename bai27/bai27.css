@@ -1,0 +1,16 @@
+body{
+    background-color: #f0f2f5;
+}
+
+.card{
+    border: none;
+}
+
+.card img{
+    height: 180px;
+    object-fit: cover;
+}
+
+.modal-content{
+    background-color: white;
+}

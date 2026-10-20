@@ -1,0 +1,21 @@
+.bang{
+    --bs-table-striped-bg: #f8f9fa;
+}
+
+.bang thead{
+    --bs-table-bg: #212529;
+    --bs-table-color: #ffffff;
+}
+
+.badge.bg-success{
+    background-color: #198754 !important;
+}
+
+.badge.bg-waring{
+    background-color: #ffc107 !important;
+}
+
+.page-item.active .page-link{
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}

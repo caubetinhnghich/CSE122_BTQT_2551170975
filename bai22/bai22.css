@@ -1,0 +1,112 @@
+:root {
+  --nen: #f1f5f9;
+  --chu: #0f172a;
+  --the: #ffffff;
+  --vien: #cbd5e1;
+  --nhan: #2563eb;
+}
+
+body.toi {
+  --nen: #0f172a;
+  --chu: #e2e8f0;
+  --the: #111c33;
+  --vien: #1e293b;
+  --nhan: #60a5fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: var(--nen);
+  color: var(--chu);
+  transition: background 0.4s, color 0.4s;
+}
+
+.khung {
+  width: 100%;
+  max-width: 520px;
+}
+
+.dau {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--chu);
+  transition: color 0.4s;
+}
+
+.the {
+  background: var(--the);
+  border: 1px solid var(--vien);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+.the h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: var(--nhan);
+  transition: color 0.4s;
+}
+
+.the p {
+  margin: 0;
+  font-size: 13px;
+}
+
+code {
+  font-family: Consolas, monospace;
+}
+
+.ghichu {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.gat {
+  width: 52px;
+  height: 28px;
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.gat::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: left 0.3s;
+}
+
+.gat.bat {
+  background: #60a5fa;
+}
+
+.gat.bat::after {
+  left: 27px;
+}
