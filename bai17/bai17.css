@@ -1,0 +1,83 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff7ed;
+    margin: 0;
+    padding: 40px 0;
+}
+
+.form{
+    width: 480px;
+    max-width: 90%;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #fed7aa;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+    box-sizing: border-box;
+}
+
+.form h1{
+    color: #c2410c;
+    font-size: 24px;
+    margin: 0 0 6px;
+}
+
+.mota{
+    color: #666;
+    font-size: 14px ;
+    margin: 0 0 18px;
+}
+
+label{
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 14px;
+}
+
+input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+input.loi{
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+input.hople{
+    border-color: #16a34a;
+}
+
+.msg{
+    font-size: 12px;
+    margin-top: 5px;
+    min-height: 16px;
+}
+
+.msg.hople{
+    color: #16a34a;
+}
+
+.msg.hople{
+    color: #dc2626;
+}
+
+button{
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    background: #c2410c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}

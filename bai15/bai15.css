@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #e5e7eb;
+}
+
+#maytinh {
+  width: 340px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #111827;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+#manhinh {
+  background: #022c22;
+  color: #4ade80;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  height: 90px;
+  text-align: right;
+  overflow: hidden;
+}
+
+#bieuthuc {
+  font-size: 16px;
+  height: 22px;
+  opacity: 0.7;
+}
+
+#ketqua {
+  font-size: 36px;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+#banphim {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.nut {
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.so        { background: #25313f; color: #e5e7eb; }
+.pheptinh  { background: #0d6efd; color: #FFFFFF; }
+.bang      { background: #16a34a; color: #FFFFFF; }
+.xoa       { background: #dc2626; color: #FFFFFF; }
+
+.rong {
+  grid-column: span 2;
+}

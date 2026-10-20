@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 17  - Kiểm tra biểu mẫu</title>
+    <link rel="stylesheet" href="bai17.css">
+</head>
+<body>
+    <form id="form" class="form" novalidate>
+        <h1>Đăng ký tài khoản</h1>
+        <p class="mota">
+            Dữ liệu được kiểm tra bằng JavaScript trước khi gửi.
+        </p>
+
+        <label for="hoten">Họ và tên</label>
+        <input type="text" id="hoten">
+        <div class="msg" id="mag-hoten"></div>
+
+        <label for="">Email</label>
+        <input type="text" id="email">
+        <div class="msg" id="msg-email"></div>
+
+        <label for="">Mật khẩu</label>
+        <input type="text" id="matkhau">
+        <div class="msg" id="msg-matkhau"></div>
+
+        <label for="">Xác nhận mật khẩu</label>
+        <input type="text" id="xacnhan">
+        <div class="msg" id="msg-xacnhan"></div>
+
+        <button type="submit">Đăng ký</button>
+
+    </form>
+
+    <script src="bai17.js"></script>
+</body>
+</html>

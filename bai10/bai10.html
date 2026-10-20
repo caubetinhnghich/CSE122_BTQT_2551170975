@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang liên hệ</title>
+  <link rel="stylesheet" href="bai10.css">
+</head>
+<body>
+  <div class="khung-form">
+    <div class="tieu-de-form">
+      <h1>Liên hệ với chúng tôi</h1>
+      <p>Vui lòng điền thông tin bên dưới, chúng tôi sẽ phản hồi trong 24 giờ.</p>
+    </div>
+
+    <form class="form-lien-he" action="#" method="post">
+      <div class="hang-2-cot">
+        <div class="nhom-truong">
+          <label for="ho-ten">Họ và tên</label>
+          <input type="text" id="ho-ten" name="ho-ten" placeholder="Nguyễn Văn An">
+        </div>
+        <div class="nhom-truong">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="an.nv@tlu.edu.vn">
+        </div>
+      </div>
+
+      <div class="hang-2-cot">
+        <div class="nhom-truong">
+          <label for="sdt">Số điện thoại</label>
+          <input type="tel" id="sdt" name="sdt" placeholder="0987 654 321">
+        </div>
+        <div class="nhom-truong">
+          <label for="chu-de">Chủ đề</label>
+          <select id="chu-de" name="chu-de">
+            <option value="khoa-hoc">Hỏi về khoá học</option>
+            <option value="ho-tro">Hỗ trợ kỹ thuật</option>
+            <option value="gop-y">Góp ý</option>
+            <option value="khac">Khác</option>
+          </select>
+        </div>
+      </div>
+      <div class="nhom-truong">
+        <label for="noi-dung">Nội dung</label>
+        <textarea id="noi-dung" name="noi-dung" rows="4" placeholder="Em muốn hỏi về lịch nộp bài tập môn Lập trình Web ạ."></textarea>
+      </div>
+
+      <div class="nhom-checkbox">
+        <input type="checkbox" id="dong-y" name="dong-y" checked>
+        <label for="dong-y">Tôi đồng ý nhận email phản hồi.</label>
+      </div>
+
+      <div class="nhom-nut">
+        <button type="submit" class="nut-gui">Gửi liên hệ</button>
+        <button type="reset" class="nut-nhap-lai">Nhập lại</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

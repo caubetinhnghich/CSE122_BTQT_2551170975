@@ -1,0 +1,115 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f0fa;
+    margin: 0;
+    padding: 40px 0;
+}
+
+.app{
+    width: 600px;
+    max-width: 95%;
+    margin: 0  auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.header{
+    background: #6d28d9;
+    color: white;
+    padding: 24px 28px ;
+}
+
+header h1{
+    margin: 0 0 6px;
+    font-size: 26px;
+}
+
+.header p{
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.form{
+    display: flex;
+    gap: 12px;
+    padding: 22px 28px;
+    border-bottom: 1px solid #ede9fe;
+}
+
+.form input{
+    flex: 1;
+    padding:  12px 14px;
+    border: 1px solid #ddd  ;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.form button{
+    background: #6d28d9;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0 28px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding:  14px 0; 
+    border-bottom: 1px solid #ede9fe;
+}
+
+li input[type=checkbox]{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid  #a78bfa;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 0;
+}
+
+li input[type=checkbox]:checked{
+    background: #6d28d9 ;
+    border-color: #6d28d9;
+}
+
+li span{
+    flex: 1;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+li.done span{
+    text-decoration: line-through;
+    color: #999;
+}
+
+.xoa{
+    background: #fde2e2;
+    color: #b91c1c;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 12px ;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.footer{
+    padding: 20px 28px;
+    color: #888;
+    font-size: 14px;
+}

@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, Tahoma, Helvetica, sans-serif;
+  background-color: #eaf1f8;
+  margin: 0;
+  padding: 30px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.the-ho-so {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  width: 100%;
+  max-width: 820px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.cot-trai {
+  background: linear-gradient(180deg, #1565C0 0%, #0d3f7a 100%);
+  color: #ffffff;
+  padding: 40px 24px 35px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.anh-dai-dien {
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  color: #1565C0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.ho-ten {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.chuc-danh {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 35px 0;
+  text-align: center;
+}
+
+.thong-tin-lien-he {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.thong-tin-lien-he li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.thong-tin-lien-he .bieu-tuong {
+  font-size: 15px;
+  width: 18px;
+  text-align: center;
+}
+
+.thong-tin-lien-he a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.thong-tin-lien-he a:hover {
+  text-decoration: underline;
+}
+
+.cot-phai {
+  padding: 35px 40px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.muc {
+  margin-bottom: 22px;
+}
+
+.muc:last-child {
+  margin-bottom: 0;
+}
+
+.tieu-de-muc {
+  color: #1565C0;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #dce8f5;
+}
+
+.noi-dung {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+.danh-sach-ky-nang {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background-color: #e3f0ff;
+  color: #0d3f7a;
+  border-radius: 16px;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.danh-sach-lien-ket {
+  font-size: 13.5px;
+  color: #666666;
+}
+
+.danh-sach-lien-ket a {
+  color: #1565C0;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.danh-sach-lien-ket a:hover {
+  color: #0d3f7a;
+}
+

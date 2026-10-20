@@ -1,0 +1,32 @@
+body{
+    background-color: #f0f2f5;
+}
+
+.carousel {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel-item img{
+    height: 340px;
+    object-fit: cover;
+}
+
+.carousel-caption{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 8px 16px;
+}
+
+.nav-pills .nav-link.active {
+    background-color:#0d6efd ;
+    color: white;
+}
+
+.tab-content {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
